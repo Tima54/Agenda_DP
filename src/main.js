@@ -15,15 +15,23 @@ function initCalendar(){
         });
         calendar.render();
         addListeners();
-
     });
 }
 
 function addListeners() {
     let addButton = document.getElementById('addBtn');
-    console.log(document);
     if (addButton) {
         addButton.addEventListener("click", addEvent, false);
+    }
+    let cells = document.querySelectorAll('[role="gridcell"]');
+    cells.forEach(element => element.addEventListener("click",selectCell,false));
+}
+
+function selectCell(){
+    if(this.classList.contains("selected-cell")){
+        this.classList.remove("selected-cell");
+    }else{
+        this.classList.add("selected-cell");
     }
 }
 
