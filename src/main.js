@@ -11,8 +11,13 @@ function initCalendar(){
     document.addEventListener('DOMContentLoaded', function() {
         let calendarEl = document.getElementById('calendar');
         calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridMonth',
+            initialView: 'dayGridMonth', //timeGridWeek
             selectable: true,
+            headerToolbar:{
+                left:'prev,next,today',
+                center:'title',
+                right:'dayGridMonth,timeGridWeek'
+            },
             dateClick: function(info){
                 addEvent(info.dateStr);
             },
@@ -34,6 +39,6 @@ function addEvent(date){
     calendar.addEvent({
         title: desc,
         start: date,
-        allDay: true
+        //allDay: true
     });
 }
