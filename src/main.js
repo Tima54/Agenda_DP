@@ -13,8 +13,12 @@ function initCalendar(){
         calendar = new FullCalendar.Calendar(calendarEl, {
             initialView: 'dayGridMonth',
             selectable: true,
-            dateClick: function (info){
+            dateClick: function(info){
                 addEvent(info.dateStr);
+            },
+            eventClick: function(info){
+                let val = prompt("Nouveau titre :");
+                info.event.setProp('title',val);
             }
         });
         calendar.render();
@@ -23,12 +27,12 @@ function initCalendar(){
 }
 
 function addListeners() {
-    let cells = document.querySelectorAll('[role="gridcell"]');
 }
 
 function addEvent(date){
+    let desc = prompt("Titre de l'événement :");
     calendar.addEvent({
-        title: 'dynamic event',
+        title: desc,
         start: date,
         allDay: true
     });
