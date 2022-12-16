@@ -1,15 +1,74 @@
 <!DOCTYPE html>
 <html lang='fr'>
+
 <head>
     <meta charset='utf-8' />
     <link href='../node_modules/fullcalendar/main.css' rel='stylesheet' />
     <link href='main.css' rel='stylesheet' />
+    <link href='modal.css' rel='stylesheet' />
     <script src='../node_modules/fullcalendar/main.js'></script>
     <script src="main.js"></script>
 </head>
 
 <body>
-<div id='calendar'></div>
-<div id='addEvent'></div>
+    <div id='calendar'></div>
+    <div id='addEvent'></div>
+
+
+    <!--Pop up de création d'un événement -->
+    <div class="modal" id="modal">
+        <div class="modal-back" onclick="fermerModal()"></div>
+        <div class="modal-container">
+            <div id="titre-modal" class="titre-modal">Créer un événement</div>
+            <input type="text" id="name" name="firstname" placeholder="Nom de l'événement">
+            <div class="modal_date_container">
+                <div class="modal_date_left">
+                    Date du début de l'événement<br>
+                    <input type="date" id="startDate" name="trip-start">
+                </div>
+                <div class="modal_date_right">
+                    Date du fin de l'événement<br>
+                    <input type="date" id="endDate" name="trip-start">
+                </div>
+            </div>
+            <div class="modal_textarea_container">
+                <textarea class="modal_textarea" placeholder="Description de l'événement"></textarea>
+            </div>
+            <div class="modal_bot">
+                <button class="button" onclick="fermerModal()" role="button">Annuler</button>
+                <button class="button" onclick="addEvent()" role="button">Créer</button>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Pop up de création d'un événement -->
+
+    <!--Pop up de modification d'un événement -->
+    <div class="modal_ModifEvent" id="modal_ModifEvent">
+        <div class="modal-back" onclick="editEvent()"></div>
+        <div class="modal-container">
+            <div id="titre-modal" class="titre-modal">Modifier un événement</div>
+            <input type="text" id="editName" name="firstname" placeholder="Nom de l'événement">
+            <div class="modal_date_container">
+                <div class="modal_date_left">
+                    Date du début de l'événement<br>
+                    <input type="date" id="editStartDate" name="trip-start">
+                </div>
+                <div class="modal_date_right">
+                    Date du fin de l'événement<br>
+                    <input type="date" id="editEndDate" name="trip-start">
+                </div>
+            </div>
+            <div class="modal_textarea_container">
+                <textarea class="modal_textarea" placeholder="Description de l'événement"></textarea>
+            </div>
+            <div class="modal_bot">
+                <button class="button" onclick="fermerModalModifEvent()" role="button">Annuler</button>
+                <button class="button" id="validerEdit" role="button">Modifier</button>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Pop up de modification d'un événement -->
+
 </body>
+
 </html>
