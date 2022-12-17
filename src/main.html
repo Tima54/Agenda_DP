@@ -25,14 +25,13 @@
                 <div class="modal_date_left">
                     Date du début de l'événement<br>
                     <input type="date" id="startDate" name="trip-start">
+                    <input type="time" id="startDuration" name="appt">
                 </div>
                 <div class="modal_date_right">
                     Date du fin de l'événement<br>
                     <input type="date" id="endDate" name="trip-start">
+                    <input type="time" id="endDuration" name="appt">
                 </div>
-            </div>
-            <div class="modal_textarea_container">
-                <textarea class="modal_textarea" placeholder="Description de l'événement"></textarea>
             </div>
             <div class="modal_bot">
                 <button class="button" onclick="fermerModal()" role="button">Annuler</button>
@@ -52,17 +51,17 @@
                 <div class="modal_date_left">
                     Date du début de l'événement<br>
                     <input type="date" id="editStartDate" name="trip-start">
+                    <input type="time" id="editStartDuration" name="appt">
                 </div>
                 <div class="modal_date_right">
                     Date du fin de l'événement<br>
                     <input type="date" id="editEndDate" name="trip-start">
+                    <input type="time" id="editEndDuration" name="appt">
                 </div>
-            </div>
-            <div class="modal_textarea_container">
-                <textarea class="modal_textarea" placeholder="Description de l'événement"></textarea>
             </div>
             <div class="modal_bot">
                 <button class="button" onclick="fermerModalModifEvent()" role="button">Annuler</button>
+                <button class="button" id="validerRemove" role="button">Supprimer</button>
                 <button class="button" id="validerEdit" role="button">Modifier</button>
             </div>
         </div>
