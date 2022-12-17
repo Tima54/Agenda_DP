@@ -33,6 +33,10 @@
                     <input type="time" id="endDuration" name="appt">
                 </div>
             </div>
+            <div class="modal_color_container">
+                <div class="modal_color_text">Couleur de l'événement : </div>
+                <input type="color" id="modal_color_picker" class="modal_color_picker" value="#e66465">
+            </div>
             <div class="modal_bot">
                 <button class="button" onclick="fermerModal()" role="button">Annuler</button>
                 <button class="button" onclick="addEvent()" role="button">Créer</button>
@@ -58,6 +62,10 @@
                     <input type="date" id="editEndDate" name="trip-start">
                     <input type="time" id="editEndDuration" name="appt">
                 </div>
+            </div>
+            <div class="modal_color_container">
+                <div class="modal_color_text">Couleur de l'événement : </div>
+                <input type="color" id="modal_edit_color_picker" class="modal_color_picker" value="#e66465">
             </div>
             <div class="modal_bot">
                 <button class="button" onclick="fermerModalModifEvent()" role="button">Annuler</button>

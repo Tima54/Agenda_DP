@@ -19,7 +19,7 @@
     padding: 25px;
     background: white;
     width: 500px;
-    height: 205px;
+    height: 250px;
     z-index: 9999;
     transform: translate(-50%, -50%);
     display: flex;
@@ -53,4 +53,16 @@
 
 .modal_date_right{
     width: 50%;
+}
+
+.modal_color_container{
+    padding-top: 10px;
+    padding-bottom: 15px;
+    display: flex;
+}
+
+.modal_color_text{
+    text-align: center;
+    margin-right: 20px;
+    margin-top: 4px;
 }

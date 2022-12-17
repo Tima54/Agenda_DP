@@ -62,10 +62,13 @@ function addEvent(){
         endDate = endDate+'T'+endDuration+':00.000Z';
     }
 
+    let colorPicker = document.getElementById('modal_color_picker').value;
+
     calendar.addEvent({
         title: title,
         start: startDate,
-        end: endDate
+        end: endDate,
+        color: colorPicker
     });
 
     fermerModal();
@@ -90,6 +93,9 @@ function editEvent(info){
         endDate = endDate+'T'+endDuration+':00.000Z';
     }
 
+    let color = document.getElementById('modal_edit_color_picker').value;
+
+    info.event.setProp( 'color', color );
     info.event.setProp('title',title);
     info.event.setStart(startDate);
     info.event.setEnd(endDate);
