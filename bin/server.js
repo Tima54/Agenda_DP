@@ -1,30 +1,49 @@
-let http = require('http');
-let fs = require('fs');
-let path = require('path');
-let server = http.createServer();
-server.on('request',(request,response) => {
-    let filePath = '../src'+request.url;
-    if(filePath==="../src/"){
-        filePath = "../src/main.html";
-    }
-    let extName = path.extname(filePath);
-    let contentType = 'text/html';
-    switch(extName){
-        case '.js':
-            contentType = 'text/javascript';
-            break;
-        case '.css':
-            contentType = 'text/css';
-            break;
-    }
-    fs.readFile(filePath, (err, data) => {
-        if (err) throw err
-        response.writeHead(200, {
-            'Content-type': contentType
-        })
-        response.end(data)
-    })
+import http from 'http';
+import {app} from './../app.js';
 
-})
+let normalizePort = val => {
 
-server.listen(8500);
+    let port = parseInt(val, 10);
+    if (isNaN(port)) {
+        return val;
+    }
+    if (port >= 0) {
+        return port;
+    }
+    return false;
+
+};
+let port = normalizePort(process.env.PORT || '3000');
+app.set('port',port);
+
+
+let errorHandler = error => {
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+    let address = server.address();
+    let bind = typeof address === 'string' ? 'pipe ' + address : 'port: ' + port;
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges.');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use.');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+};
+
+let server = http.createServer(app);
+
+server.on('error',errorHandler);
+server.on('listening', () => {
+    const address = server.address();
+    const bind = typeof address === 'string' ? 'pipe ' + address : 'port ' + port;
+    console.log('Listening on ' + bind);
+});
+
+server.listen(port);
