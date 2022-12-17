@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang='fr'>
-  <head style="background-color: lightblue;">
-    <meta charset='utf-8' />
-    <link href='inscription.css' rel='stylesheet' />
-    <div>
-        <h1>Page de Connexion</h1>
-        <form name="formulaire" action="main.html" method="post">
-            <div>
-                <label>Votre identifiant</label>
-                <input type="text" id="id" name="identifiant" placeholder="Pseudo" required>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+      <title>Connexion</title>
+      <link rel="stylesheet" href="login.css">
+  </head>
+  <body>
+    <div class="login-form">
+      <form action="/src/main.html" method="post">
+        <h1>Connexion</h1>
+        <div class="content">
+            <div class="input-field">
+              <input type="text" placeholder="Indentifiant" pattern="^[A-Za-z0-9._-]{3,45}$">
             </div>
-            <div>
-                <label>Votre mot de passe</label>
-                <input type="password" id="mdp" name="motdepasse" placeholder="******" required>
+            <div class="input-field">
+              <input type="password" placeholder="Mot de passe" pattern="^[A-Za-z0-9._-]{3,45}$" >
             </div>
-            <div>
-                <button class="button-56" role="button">Connexion !</button>
+            <div class="action">
+              <input type="button" Value="Connexion" onclick="window.location='main.html';">
+              <input type="button" Value="Inscription" onclick="window.location='inscription.html';">
             </div>
-        </form>
-        <form action="inscription.html" method="post">
-            <div>
-                <button role="button">Vous n'avez pas de Compte ?</button>
-            </div>
-        </form>
+        </div>
         
+      </form>
     </div>
-    </head>
+  </body>
 </html>
